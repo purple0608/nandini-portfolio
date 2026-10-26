@@ -1,0 +1,22 @@
+/* Scroll entrances use independent translate/scale, leaving hover transforms free. */
+.motion-enabled .motion-card{transition:transform .45s cubic-bezier(.22,1.5,.4,1),box-shadow .35s ease,border-color .3s ease;transform-origin:center;backface-visibility:hidden}
+@media(hover:hover) and (pointer:fine){
+ .motion-enabled .motion-card.card-pointer{transform:perspective(1100px) rotateX(var(--card-rx,0deg)) rotateY(var(--card-ry,0deg)) translateY(-5px);box-shadow:0 18px 35px #17284a14}
+ .motion-enabled .desk-link:hover .desk-object{transform:rotateY(20deg) rotateX(-12deg) translateY(-9px);transition:transform .55s cubic-bezier(.2,1.65,.4,1)}
+ .motion-enabled .afk-reading:hover .volume-dark{transform:rotateY(-20deg) rotateZ(-12deg) translateY(-9px)}
+ .motion-enabled .afk-reading:hover .volume-light{transform:rotateY(5deg) rotateZ(14deg) translateY(-4px)}
+ .motion-enabled .reading-volume,.motion-enabled .vinyl,.motion-enabled .notion-mini,.motion-enabled .cinema-frame{transition:transform .65s cubic-bezier(.2,1.5,.4,1)}
+ .motion-enabled .afk-music:hover .vinyl{transform:rotate(24deg) scale(1.04)}
+ .motion-enabled .afk-notion:hover .notion-mini{transform:perspective(800px) rotateY(-8deg) rotateZ(-3deg) translateY(-5px)}
+ .motion-enabled .afk-cinema:hover .cinema-frame{transform:rotate(-4deg) translateY(-5px)}
+}
+.motion-enabled .motion-card:focus-within{border-color:#8da7ff}
+.motion-enabled .round-arrow{transition:transform .4s cubic-bezier(.2,1.5,.4,1),background .3s,color .3s}
+.motion-enabled .note-card:hover .round-arrow{transform:rotate(45deg);background:var(--blue);color:white}
+.motion-enabled .button{transition:transform .35s cubic-bezier(.2,1.8,.4,1),box-shadow .25s,background .25s}
+.motion-enabled .button:active{transform:translateY(2px) scale(.97)}
+.motion-enabled .idea-list details[open] .idea-body{animation:detail-enter .5s cubic-bezier(.22,1.25,.4,1)}
+@keyframes detail-enter{from{opacity:0;translate:0 16px}to{opacity:1;translate:0 0}}
+.motion-preference{border:1px solid #bfc9e0;background:transparent;color:var(--ink);border-radius:20px;padding:7px 12px;font-size:10px;margin-left:auto;cursor:pointer}
+.motion-preference:disabled{cursor:default;color:var(--muted)}
+@media(prefers-reduced-motion:reduce){.motion-card,.reading-volume,.vinyl,.notion-mini,.cinema-frame,.round-arrow{transition:none!important;animation:none!important}.motion-card.card-pointer{transform:none!important}}
